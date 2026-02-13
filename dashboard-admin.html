@@ -30,10 +30,16 @@
         <!-- Sidebar -->
         <aside
             class="w-64 bg-brand-bgSec border-r border-brand-border hidden lg:flex flex-col transition-colors duration-300">
-            <div class="h-20 flex items-center px-6 border-b border-brand-border cursor-pointer"
+            <div class="h-20 flex items-center px-6 border-b border-brand-border cursor-pointer group"
                 onclick="window.location.href='index.html'">
-                <i data-lucide="dna" class="h-8 w-8 text-brand-accent"></i>
-                <span class="ml-2 text-xl font-heading font-bold text-brand-text">BioPulse</span>
+                <div class="relative">
+                    <i data-lucide="dna" class="h-8 w-8 text-brand-accent group-hover:animate-pulse"></i>
+                    <div
+                        class="absolute inset-0 bg-brand-accent blur-xl opacity-0 group-hover:opacity-20 rounded-full transition-opacity">
+                    </div>
+                </div>
+                <span class="ml-2 text-xl font-heading font-bold text-brand-text">Bio<span
+                        class="text-brand-accent">Pulse</span></span>
             </div>
             <div class="flex-1 py-6 px-4 space-y-2">
                 <a href="dashboard-admin.html"
@@ -71,14 +77,23 @@
             <!-- Mobile Header -->
             <header
                 class="lg:hidden h-16 bg-brand-bgSec flex items-center justify-between px-4 border-b border-brand-border shrink-0 transition-colors duration-300">
-                <div class="flex items-center" onclick="window.location.href='index.html'">
-                    <i data-lucide="dna" class="h-8 w-8 text-brand-accent"></i>
-                    <span class="ml-2 font-bold text-brand-text">BioPulse</span>
+                <div class="flex items-center cursor-pointer group" onclick="window.location.href='index.html'">
+                    <div class="relative">
+                        <i data-lucide="dna" class="h-8 w-8 text-brand-accent group-hover:animate-pulse"></i>
+                        <div
+                            class="absolute inset-0 bg-brand-accent blur-xl opacity-0 group-hover:opacity-20 rounded-full transition-opacity">
+                        </div>
+                    </div>
+                    <span class="ml-2 font-bold text-brand-text">Bio<span class="text-brand-accent">Pulse</span></span>
                 </div>
                 <div class="flex items-center space-x-4">
                     <button id="theme-toggle"
-                        class="p-2 rounded-full text-brand-textSec hover:text-brand-accent transition-colors theme-icon"></button>
-                    <a href="index.html"><i data-lucide="log-out" class="h-6 w-6 text-red-400"></i></a>
+                        class="p-2 rounded-full text-brand-textSec hover:text-brand-accent transition-colors theme-icon"
+                        aria-label="Toggle Theme"></button>
+                    <a href="index.html" class="p-2 text-red-500 hover:bg-red-500/10 rounded-full transition-all"
+                        aria-label="Logout">
+                        <i data-lucide="log-out" class="h-6 w-6"></i>
+                    </a>
                 </div>
             </header>
 

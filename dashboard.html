@@ -24,9 +24,13 @@
     <header
         class="sticky top-0 z-50 bg-brand-bgSec/95 border-b border-brand-border backdrop-blur-md h-20 flex items-center">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex justify-between items-center">
-            <div class="flex items-center cursor-pointer" onclick="window.location.href='index.html'">
-                <i data-lucide="dna" class="h-10 w-10 text-brand-accent animate-pulse"></i>
-                <span class="ml-3 text-2xl font-heading font-bold text-brand-text">BioPulse</span>
+            <div class="flex items-center cursor-pointer group" onclick="window.location.href='index.html'">
+                <div class="relative">
+                    <i data-lucide="dna" class="h-10 w-10 text-brand-accent group-hover:animate-pulse"></i>
+                    <div class="absolute inset-0 bg-brand-accent blur-xl opacity-20 rounded-full"></div>
+                </div>
+                <span class="ml-3 text-2xl font-heading font-bold text-brand-text">Bio<span
+                        class="text-brand-accent">Pulse</span></span>
             </div>
 
             <div class="flex items-center space-x-4">

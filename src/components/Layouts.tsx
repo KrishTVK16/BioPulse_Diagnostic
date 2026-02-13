@@ -43,10 +43,10 @@ export const Navbar: React.FC = () => {
     <nav className="sticky top-0 z-50 bg-brand-bg/95 backdrop-blur-md border-b border-brand-border transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          <div className="flex items-center cursor-pointer" onClick={() => navigate('/')}>
+          <div className="flex items-center cursor-pointer group" onClick={() => navigate('/')}>
             <div className="relative">
-              <Dna className="h-10 w-10 text-brand-accent animate-pulse" />
-              <div className="absolute inset-0 bg-brand-accent blur-xl opacity-20 rounded-full"></div>
+              <Dna className="h-10 w-10 text-brand-accent group-hover:animate-pulse transition-all" />
+              <div className="absolute inset-0 bg-brand-accent blur-xl opacity-0 group-hover:opacity-20 rounded-full transition-opacity"></div>
             </div>
             <span className="ml-3 text-2xl font-heading font-bold text-brand-text tracking-wide">
               Bio<span className="text-brand-accent">Pulse</span>
@@ -133,8 +133,8 @@ export const Navbar: React.FC = () => {
           <div className="absolute right-0 top-0 w-64 h-full bg-brand-bgSec shadow-2xl p-6 flex flex-col space-y-6 transform transition-transform duration-300 border-l border-brand-border overflow-y-auto" onClick={(e) => e.stopPropagation()}>
             <div className="flex flex-col space-y-2">
               <h3 className="text-sm font-bold text-brand-textSec uppercase tracking-wider mb-2">Home</h3>
-              <Link to="/" onClick={() => setIsOpen(false)} className="text-lg font-medium text-brand-text hover:text-brand-accent">Classic View</Link>
-              <Link to="/home-v2" onClick={() => setIsOpen(false)} className="text-lg font-medium text-brand-text hover:text-brand-accent">Immersive</Link>
+              <Link to="/" onClick={() => setIsOpen(false)} className={`text-lg font-medium hover:text-brand-accent ${location.pathname === '/' ? 'text-brand-accent' : 'text-brand-text'}`}>Classic View</Link>
+              <Link to="/home-v2" onClick={() => setIsOpen(false)} className={`text-lg font-medium hover:text-brand-accent ${location.pathname === '/home-v2' ? 'text-brand-accent' : 'text-brand-text'}`}>Immersive Experience</Link>
             </div>
 
             <div className="w-full h-px bg-brand-border"></div>
@@ -280,9 +280,12 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children, role
     <div className="min-h-screen bg-brand-bg flex transition-colors duration-300">
       {/* Sidebar */}
       <aside className="w-64 bg-brand-bgSec border-r border-brand-border hidden lg:flex flex-col transition-colors duration-300">
-        <div className="h-20 flex items-center px-6 border-b border-brand-border cursor-pointer" onClick={() => navigate('/')}>
-          <Dna className="h-8 w-8 text-brand-accent" />
-          <span className="ml-2 text-xl font-heading font-bold text-brand-text">BioPulse</span>
+        <div className="h-20 flex items-center px-6 border-b border-brand-border cursor-pointer group" onClick={() => navigate('/')}>
+          <div className="relative">
+            <Dna className="h-8 w-8 text-brand-accent group-hover:animate-pulse transition-all" />
+            <div className="absolute inset-0 bg-brand-accent blur-xl opacity-0 group-hover:opacity-20 rounded-full transition-opacity"></div>
+          </div>
+          <span className="ml-2 text-xl font-heading font-bold text-brand-text">Bio<span className="text-brand-accent">Pulse</span></span>
         </div>
         <div className="flex-1 py-6 px-4 space-y-2">
           {links.map((link) => (
@@ -290,8 +293,8 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children, role
               key={link.path}
               onClick={() => navigate(link.path)}
               className={`w-full flex items-center space-x-3 px-4 py-3 rounded-lg transition-all ${location.pathname === link.path
-                  ? 'bg-brand-accent text-brand-bg font-bold shadow-[0_0_10px_var(--brand-accent)]'
-                  : 'text-brand-textSec hover:bg-brand-bg'
+                ? 'bg-brand-accent text-brand-bg font-bold shadow-[0_0_10px_var(--brand-accent)]'
+                : 'text-brand-textSec hover:bg-brand-bg'
                 }`}
             >
               <link.icon className="h-5 w-5" />
@@ -311,9 +314,12 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children, role
       <div className="flex-1 flex flex-col h-screen overflow-hidden">
         {/* Mobile Header */}
         <header className="lg:hidden h-16 bg-brand-bgSec flex items-center justify-between px-4 border-b border-brand-border shrink-0 transition-colors duration-300">
-          <div className="flex items-center" onClick={() => navigate('/')}>
-            <Dna className="h-8 w-8 text-brand-accent" />
-            <span className="ml-2 font-bold text-brand-text">BioPulse</span>
+          <div className="flex items-center cursor-pointer group" onClick={() => navigate('/')}>
+            <div className="relative">
+              <Dna className="h-8 w-8 text-brand-accent group-hover:animate-pulse transition-all" />
+              <div className="absolute inset-0 bg-brand-accent blur-xl opacity-0 group-hover:opacity-20 rounded-full transition-opacity"></div>
+            </div>
+            <span className="ml-2 font-bold text-brand-text">Bio<span className="text-brand-accent">Pulse</span></span>
           </div>
           <button onClick={() => navigate('/')}><LogOut className="h-6 w-6 text-red-400" /></button>
         </header>

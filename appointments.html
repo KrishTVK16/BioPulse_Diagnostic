@@ -42,6 +42,7 @@
                 <!-- Desktop Menu -->
                 <div class="hidden lg:block">
                     <div class="ml-10 flex items-center space-x-8">
+                        <!-- Home Dropdown -->
                         <div class="relative group">
                             <button
                                 class="flex items-center px-3 py-2 text-sm font-medium text-brand-textSec hover:text-brand-text transition-all duration-300 relative group">
@@ -59,10 +60,10 @@
                         </div>
 
                         <a href="diagnostics.html"
-                            class="px-3 py-2 text-sm font-medium text-brand-textSec hover:text-brand-text transition-all duration-300 relative group">
+                            class="px-3 py-2 text-sm font-medium text-brand-accent transition-all duration-300 relative group">
                             Diagnostics
                             <span
-                                class="absolute bottom-0 left-0 w-full h-0.5 bg-brand-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+                                class="absolute bottom-0 left-0 w-full h-0.5 bg-brand-accent transform scale-x-100 shadow-[0_0_10px_var(--brand-accent)] transition-transform duration-300"></span>
                         </a>
                         <a href="doctors.html"
                             class="px-3 py-2 text-sm font-medium text-brand-textSec hover:text-brand-text transition-all duration-300 relative group">
@@ -90,6 +91,7 @@
                     <button id="theme-toggle"
                         class="p-2 rounded-full text-brand-textSec hover:text-brand-accent hover:bg-brand-bgSec transition-colors theme-icon"
                         aria-label="Toggle Theme">
+                        <!-- Icon will be inserted by JS -->
                     </button>
 
                     <a href="dashboard-admin.html"
@@ -109,9 +111,11 @@
                 <!-- Mobile Menu Button -->
                 <div class="-mr-2 flex lg:hidden items-center space-x-4">
                     <button id="mobile-theme-toggle"
-                        class="p-2 rounded-full text-brand-textSec hover:text-brand-accent hover:bg-brand-bgSec transition-colors theme-icon">
+                        class="p-2 rounded-full text-brand-textSec hover:text-brand-accent hover:bg-brand-bgSec transition-colors theme-icon"
+                        aria-label="Toggle Theme">
+                        <!-- Icon will be inserted by JS -->
                     </button>
-                    <button id="menu-toggle"
+                    <button id="menu-toggle" aria-label="Toggle Menu"
                         class="inline-flex items-center justify-center p-2 rounded-md text-brand-textSec hover:text-brand-text hover:bg-brand-bgSec focus:outline-none">
                         <i data-lucide="menu" id="menu-open-icon" class="block h-8 w-8 text-brand-accent"></i>
                         <i data-lucide="x" id="menu-close-icon" class="hidden h-8 w-8 text-brand-accent"></i>
@@ -120,6 +124,7 @@
             </div>
         </div>
 
+        <!-- Mobile Menu (Hidden by default) -->
         <div id="mobile-menu" class="hidden lg:hidden absolute top-20 left-0 w-full h-screen bg-black/50 z-40">
             <div
                 class="absolute right-0 top-0 w-64 h-full bg-brand-bgSec shadow-2xl p-6 flex flex-col space-y-6 transform transition-transform duration-300 border-l border-brand-border overflow-y-auto">
@@ -134,8 +139,7 @@
                 <div class="w-full h-px bg-brand-border"></div>
 
                 <div class="flex flex-col space-y-4">
-                    <a href="diagnostics.html"
-                        class="text-lg font-medium text-brand-textSec hover:text-brand-text">Diagnostics</a>
+                    <a href="diagnostics.html" class="text-lg font-medium text-brand-accent">Diagnostics</a>
                     <a href="doctors.html"
                         class="text-lg font-medium text-brand-textSec hover:text-brand-text">Doctors</a>
                     <a href="about.html" class="text-lg font-medium text-brand-textSec hover:text-brand-text">About</a>

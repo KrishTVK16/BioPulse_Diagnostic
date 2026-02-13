@@ -23,32 +23,139 @@
 
 <body class="bg-brand-bg text-brand-text transition-colors duration-300 overflow-x-hidden">
 
-    <!-- Navbar (Shared) -->
+    <!-- Navbar -->
     <nav
         class="sticky top-0 z-50 bg-brand-bg/95 backdrop-blur-md border-b border-brand-border transition-colors duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
                 <a href="index.html" class="flex items-center cursor-pointer">
-                    <i data-lucide="dna" class="h-10 w-10 text-brand-accent animate-pulse"></i>
-                    <span class="ml-3 text-2xl font-heading font-bold text-brand-text tracking-wide">Bio<span
-                            class="text-brand-accent">Pulse</span></span>
+                    <div class="relative">
+                        <i data-lucide="dna" class="h-10 w-10 text-brand-accent animate-pulse"></i>
+                        <div class="absolute inset-0 bg-brand-accent blur-xl opacity-20 rounded-full"></div>
+                    </div>
+                    <span class="ml-3 text-2xl font-heading font-bold text-brand-text tracking-wide">
+                        Bio<span class="text-brand-accent">Pulse</span>
+                    </span>
                 </a>
-                <div class="hidden lg:flex items-center space-x-8">
-                    <a href="index.html" class="text-sm font-medium text-brand-textSec hover:text-brand-text">Home</a>
-                    <a href="diagnostics.html"
-                        class="text-sm font-medium text-brand-textSec hover:text-brand-text">Diagnostics</a>
-                    <a href="doctors.html"
-                        class="text-sm font-medium text-brand-textSec hover:text-brand-text">Doctors</a>
-                    <a href="about.html" class="text-sm font-medium text-brand-textSec hover:text-brand-text">About</a>
-                    <a href="contact.html"
-                        class="text-sm font-medium text-brand-textSec hover:text-brand-text">Contact</a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden lg:block">
+                    <div class="ml-10 flex items-center space-x-8">
+                        <!-- Home Dropdown -->
+                        <div class="relative group">
+                            <button
+                                class="flex items-center px-3 py-2 text-sm font-medium text-brand-accent transition-all duration-300 relative group">
+                                Home <i data-lucide="chevron-down" class="ml-1 h-4 w-4"></i>
+                                <span
+                                    class="absolute bottom-0 left-0 w-full h-0.5 bg-brand-accent transform scale-x-100 shadow-[0_0_10px_var(--brand-accent)] transition-transform duration-300"></span>
+                            </button>
+                            <div
+                                class="absolute top-full left-0 w-48 bg-brand-bgSec border border-brand-border rounded-lg shadow-xl py-2 mt-1 hidden group-hover:block animate-in fade-in slide-in-from-top-2">
+                                <a href="index.html"
+                                    class="block px-4 py-2 text-sm text-brand-text hover:bg-brand-bg hover:text-brand-accent">Classic
+                                    View</a>
+                                <a href="home-v2.html"
+                                    class="block px-4 py-2 text-sm text-brand-accent hover:bg-brand-bg">Immersive
+                                    Experience</a>
+                            </div>
+                        </div>
+
+                        <a href="diagnostics.html"
+                            class="px-3 py-2 text-sm font-medium text-brand-textSec hover:text-brand-text transition-all duration-300 relative group">
+                            Diagnostics
+                            <span
+                                class="absolute bottom-0 left-0 w-full h-0.5 bg-brand-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+                        </a>
+                        <a href="doctors.html"
+                            class="px-3 py-2 text-sm font-medium text-brand-textSec hover:text-brand-text transition-all duration-300 relative group">
+                            Doctors
+                            <span
+                                class="absolute bottom-0 left-0 w-full h-0.5 bg-brand-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+                        </a>
+                        <a href="about.html"
+                            class="px-3 py-2 text-sm font-medium text-brand-textSec hover:text-brand-text transition-all duration-300 relative group">
+                            About
+                            <span
+                                class="absolute bottom-0 left-0 w-full h-0.5 bg-brand-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+                        </a>
+                        <a href="contact.html"
+                            class="px-3 py-2 text-sm font-medium text-brand-textSec hover:text-brand-text transition-all duration-300 relative group">
+                            Contact
+                            <span
+                                class="absolute bottom-0 left-0 w-full h-0.5 bg-brand-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+                        </a>
+                    </div>
                 </div>
+
+                <!-- Action Buttons -->
                 <div class="hidden lg:flex items-center space-x-4">
                     <button id="theme-toggle"
-                        class="p-2 rounded-full text-brand-textSec hover:text-brand-accent theme-icon"
-                        aria-label="Toggle Theme"></button>
+                        class="p-2 rounded-full text-brand-textSec hover:text-brand-accent hover:bg-brand-bgSec transition-colors theme-icon"
+                        aria-label="Toggle Theme">
+                        <!-- Icon will be inserted by JS -->
+                    </button>
+
+                    <a href="dashboard-admin.html"
+                        class="px-5 py-2 rounded-full border border-brand-accent text-brand-accent hover:bg-brand-accent hover:text-brand-bg transition-all duration-300 text-sm font-bold shadow-[0_0_10px_rgba(0,245,192,0.2)] hover:shadow-[0_0_20px_rgba(0,245,192,0.6)]">
+                        Admin
+                    </a>
                     <a href="login.html"
-                        class="px-5 py-2 rounded-full bg-brand-accent text-brand-bg font-bold hover:bg-brand-accentSec transition-colors text-sm">Login</a>
+                        class="px-5 py-2 rounded-full bg-brand-bgSec text-brand-text hover:bg-brand-accentSec transition-colors duration-300 text-sm font-medium">
+                        Login
+                    </a>
+                    <a href="register.html"
+                        class="px-5 py-2 rounded-full bg-brand-bgSec text-brand-text hover:bg-brand-accentSec transition-colors duration-300 text-sm font-medium">
+                        Register
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="-mr-2 flex lg:hidden items-center space-x-4">
+                    <button id="mobile-theme-toggle"
+                        class="p-2 rounded-full text-brand-textSec hover:text-brand-accent hover:bg-brand-bgSec transition-colors theme-icon"
+                        aria-label="Toggle Theme">
+                        <!-- Icon will be inserted by JS -->
+                    </button>
+                    <button id="menu-toggle" aria-label="Toggle Menu"
+                        class="inline-flex items-center justify-center p-2 rounded-md text-brand-textSec hover:text-brand-text hover:bg-brand-bgSec focus:outline-none">
+                        <i data-lucide="menu" id="menu-open-icon" class="block h-8 w-8 text-brand-accent"></i>
+                        <i data-lucide="x" id="menu-close-icon" class="hidden h-8 w-8 text-brand-accent"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden lg:hidden absolute top-20 left-0 w-full h-screen bg-black/50 z-40">
+            <div
+                class="absolute right-0 top-0 w-64 h-full bg-brand-bgSec shadow-2xl p-6 flex flex-col space-y-6 transform transition-transform duration-300 border-l border-brand-border overflow-y-auto">
+                <div class="flex flex-col space-y-2">
+                    <h3 class="text-sm font-bold text-brand-textSec uppercase tracking-wider mb-2">Home</h3>
+                    <a href="index.html" class="text-lg font-medium text-brand-text hover:text-brand-accent">Classic
+                        View</a>
+                    <a href="home-v2.html" class="text-lg font-medium text-brand-accent">Immersive</a>
+                </div>
+
+                <div class="w-full h-px bg-brand-border"></div>
+
+                <div class="flex flex-col space-y-4">
+                    <a href="diagnostics.html"
+                        class="text-lg font-medium text-brand-textSec hover:text-brand-text">Diagnostics</a>
+                    <a href="doctors.html"
+                        class="text-lg font-medium text-brand-textSec hover:text-brand-text">Doctors</a>
+                    <a href="about.html" class="text-lg font-medium text-brand-textSec hover:text-brand-text">About</a>
+                    <a href="contact.html"
+                        class="text-lg font-medium text-brand-textSec hover:text-brand-text">Contact</a>
+                </div>
+
+                <div class="pt-6 border-t border-brand-border flex flex-col space-y-4">
+                    <a href="dashboard-admin.html"
+                        class="w-full py-2 text-center rounded bg-brand-accent text-brand-bg font-bold shadow-md hover:bg-brand-accentSec transition-colors">Admin</a>
+                    <a href="login.html"
+                        class="w-full py-2 text-center rounded border border-brand-border text-brand-text hover:bg-brand-bg transition-colors">Login</a>
+                    <a href="register.html"
+                        class="w-full py-2 text-center rounded border border-brand-border text-brand-text hover:bg-brand-bg transition-colors">Register</a>
                 </div>
             </div>
         </div>
@@ -246,20 +353,83 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-brand-bg border-t border-brand-border py-12 text-center transition-colors duration-300">
-        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6">
-            <div class="flex items-center">
-                <i data-lucide="dna" class="h-8 w-8 text-brand-accent"></i>
-                <span class="ml-2 text-xl font-heading font-bold text-brand-text">BioPulse</span>
+    <footer class="bg-brand-bg border-t border-brand-border pt-16 pb-8 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12 text-left">
+                <div class="space-y-4">
+                    <div class="flex items-center">
+                        <i data-lucide="dna" class="h-8 w-8 text-brand-accent"></i>
+                        <span class="ml-2 text-xl font-heading font-bold text-brand-text">BioPulse</span>
+                    </div>
+                    <p class="text-brand-textSec text-sm leading-relaxed">
+                        Precision diagnostics powered by advanced technology. We deliver accurate results to empower
+                        your health decisions.
+                    </p>
+                    <div class="flex space-x-4 pt-2">
+                        <a href="#"><i data-lucide="facebook"
+                                class="h-5 w-5 text-brand-textSec hover:text-brand-accent cursor-pointer transition-colors"></i></a>
+                        <a href="#"><i data-lucide="twitter"
+                                class="h-5 w-5 text-brand-textSec hover:text-brand-accent cursor-pointer transition-colors"></i></a>
+                        <a href="#"><i data-lucide="linkedin"
+                                class="h-5 w-5 text-brand-textSec hover:text-brand-accent cursor-pointer transition-colors"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-brand-text font-bold mb-4 border-b border-brand-accent inline-block pb-1">Quick
+                        Links</h3>
+                    <ul class="space-y-2 text-sm text-brand-textSec">
+                        <li><a href="about.html" class="hover:text-brand-accent transition-colors">About Us</a></li>
+                        <li><a href="doctors.html" class="hover:text-brand-accent transition-colors">Our Doctors</a>
+                        </li>
+                        <li><a href="diagnostics.html" class="hover:text-brand-accent transition-colors">Services</a>
+                        </li>
+                        <li><a href="contact.html" class="hover:text-brand-accent transition-colors">Contact Support</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-brand-text font-bold mb-4 border-b border-brand-accent inline-block pb-1">Services
+                    </h3>
+                    <ul class="space-y-2 text-sm text-brand-textSec">
+                        <li><a href="diagnostics.html?category=Pathology"
+                                class="hover:text-brand-accent transition-colors">Pathology</a></li>
+                        <li><a href="diagnostics.html?category=Radiology"
+                                class="hover:text-brand-accent transition-colors">Radiology</a></li>
+                        <li><a href="diagnostics.html?category=Cardiac"
+                                class="hover:text-brand-accent transition-colors">Cardiac Profile</a></li>
+                        <li><a href="diagnostics.html?category=Diabetes"
+                                class="hover:text-brand-accent transition-colors">Diabetes Care</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-brand-text font-bold mb-4 border-b border-brand-accent inline-block pb-1">Contact Us
+                    </h3>
+                    <ul class="space-y-4 text-sm text-brand-textSec">
+                        <li class="flex items-start">
+                            <i data-lucide="map-pin" class="h-5 w-5 text-brand-accent mr-2 shrink-0"></i>
+                            <span>123 Medical Plaza, Tech Park Blvd, Innovation City</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-lucide="phone" class="h-5 w-5 text-brand-accent mr-2 shrink-0"></i>
+                            <span>+1 (800) 555-0199</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-lucide="mail" class="h-5 w-5 text-brand-accent mr-2 shrink-0"></i>
+                            <span>support@biopulse.com</span>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <p class="text-brand-textSec text-sm">© 2025 BioPulse Diagnostics. All rights reserved.</p>
-            <div class="flex space-x-6">
-                <a href="#" class="text-brand-textSec hover:text-brand-accent transition-colors"><i
-                        data-lucide="facebook"></i></a>
-                <a href="#" class="text-brand-textSec hover:text-brand-accent transition-colors"><i
-                        data-lucide="twitter"></i></a>
-                <a href="#" class="text-brand-textSec hover:text-brand-accent transition-colors"><i
-                        data-lucide="linkedin"></i></a>
+
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-brand-textSec text-sm">© 2025 BioPulse Diagnostics. All rights reserved.</p>
+                <div class="flex space-x-6 text-sm text-brand-textSec mt-4 md:mt-0">
+                    <a href="#" class="hover:text-brand-text">Privacy Policy</a>
+                    <a href="#" class="hover:text-brand-text">Terms of Service</a>
+                </div>
             </div>
         </div>
     </footer>
