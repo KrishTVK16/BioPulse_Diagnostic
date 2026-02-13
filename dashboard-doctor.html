@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Dashboard | BioPulse Diagnostics</title>
+    <meta name="description"
+        content="Manage your schedule, view patient records, and analyze medical reports at BioPulse Diagnostics.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Lexend+Deca:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+
+</head>
+
+<body class="bg-brand-bg text-brand-text transition-colors duration-300">
+
+    <div class="min-h-screen bg-brand-bg flex transition-colors duration-300">
+        <!-- Sidebar -->
+        <aside
+            class="w-64 bg-brand-bgSec border-r border-brand-border hidden lg:flex flex-col transition-colors duration-300">
+            <div class="h-20 flex items-center px-6 border-b border-brand-border cursor-pointer"
+                onclick="window.location.href='index.html'">
+                <i data-lucide="dna" class="h-8 w-8 text-brand-accent"></i>
+                <span class="ml-2 text-xl font-heading font-bold text-brand-text">BioPulse</span>
+            </div>
+            <div class="flex-1 py-6 px-4 space-y-2">
+                <a href="dashboard-doctor.html"
+                    class="w-full flex items-center space-x-3 px-4 py-3 rounded-lg bg-brand-accent text-brand-bg font-bold shadow-[0_0_10px_var(--brand-accent)] transition-all">
+                    <i data-lucide="layout-dashboard" class="h-5 w-5"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#"
+                    class="w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-brand-textSec hover:bg-brand-bg transition-all">
+                    <i data-lucide="users" class="h-5 w-5"></i>
+                    <span>My Patients</span>
+                </a>
+                <a href="#"
+                    class="w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-brand-textSec hover:bg-brand-bg transition-all">
+                    <i data-lucide="activity" class="h-5 w-5"></i>
+                    <span>Reports</span>
+                </a>
+            </div>
+            <div class="p-4 border-t border-brand-border">
+                <a href="index.html"
+                    class="w-full flex items-center space-x-3 px-4 py-3 text-red-500 hover:bg-red-500/10 rounded-lg transition-colors">
+                    <i data-lucide="log-out" class="h-5 w-5"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="flex-1 flex flex-col h-screen overflow-hidden">
+            <!-- Mobile Header -->
+            <header
+                class="lg:hidden h-16 bg-brand-bgSec flex items-center justify-between px-4 border-b border-brand-border shrink-0 transition-colors duration-300">
+                <div class="flex items-center" onclick="window.location.href='index.html'">
+                    <i data-lucide="dna" class="h-8 w-8 text-brand-accent"></i>
+                    <span class="ml-2 font-bold text-brand-text">BioPulse</span>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button id="theme-toggle"
+                        class="p-2 rounded-full text-brand-textSec hover:text-brand-accent transition-colors theme-icon"></button>
+                    <a href="index.html"><i data-lucide="log-out" class="h-6 w-6 text-red-400"></i></a>
+                </div>
+            </header>
+
+            <main class="flex-1 p-4 lg:p-8 overflow-y-auto">
+                <div class="space-y-8 animate-in fade-in duration-500">
+                    <div class="flex justify-between items-end">
+                        <div>
+                            <h1 class="text-3xl font-heading font-bold text-brand-text mb-2">Dr. Sarah Chen</h1>
+                            <p class="text-brand-textSec">Pathologist | Dashboard</p>
+                        </div>
+                        <div class="text-right hidden sm:block">
+                            <p id="current-date" class="text-brand-accent font-bold text-xl"></p>
+                        </div>
+                    </div>
+
+                    <!-- Stats -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div
+                            class="bg-brand-bgSec/40 p-6 rounded-3xl flex items-center space-x-4 border-l-4 border-brand-accent">
+                            <div class="p-3 bg-brand-bg rounded-full text-brand-accent"><i data-lucide="clock"></i>
+                            </div>
+                            <div>
+                                <div class="text-2xl font-bold text-brand-text">3</div>
+                                <div class="text-sm text-brand-textSec">Today's Appointments</div>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-brand-bgSec/40 p-6 rounded-3xl flex items-center space-x-4 border-l-4 border-yellow-500">
+                            <div class="p-3 bg-brand-bg rounded-full text-yellow-500"><i
+                                    data-lucide="clipboard-list"></i></div>
+                            <div>
+                                <div class="text-2xl font-bold text-brand-text">1</div>
+                                <div class="text-sm text-brand-textSec">Pending Reviews</div>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-brand-bgSec/40 p-6 rounded-3xl flex items-center space-x-4 border-l-4 border-blue-500">
+                            <div class="p-3 bg-brand-bg rounded-full text-blue-500"><i data-lucide="users"></i></div>
+                            <div>
+                                <div class="text-2xl font-bold text-brand-text">124</div>
+                                <div class="text-sm text-brand-textSec">Total Patients</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                        <!-- Patient Queue -->
+                        <div class="lg:col-span-2">
+                            <div class="bg-brand-bgSec/40 border border-brand-border p-8 rounded-3xl">
+                                <div class="flex justify-between items-center mb-6">
+                                    <h2 class="text-xl font-bold text-brand-text">Today's Schedule</h2>
+                                    <button
+                                        class="py-1 px-3 text-xs rounded border border-brand-border text-brand-textSec hover:border-brand-accent hover:text-brand-accent transition-colors">View
+                                        Calendar</button>
+                                </div>
+                                <div class="overflow-x-auto">
+                                    <table class="w-full text-left text-sm text-brand-textSec">
+                                        <thead class="text-xs uppercase bg-brand-bg text-brand-textSec">
+                                            <tr>
+                                                <th class="px-4 py-3">Time</th>
+                                                <th class="px-4 py-3">Patient</th>
+                                                <th class="px-4 py-3">Test</th>
+                                                <th className="px-4 py-3">Status</th>
+                                                <th class="px-4 py-3">Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="divide-y divide-brand-border">
+                                            <tr class="hover:bg-brand-bg transition-colors">
+                                                <td class="px-4 py-3 font-mono">09:00 AM</td>
+                                                <td class="px-4 py-3 font-bold text-brand-text">John Doe</td>
+                                                <td class="px-4 py-3">Lipid Profile</td>
+                                                <td class="px-4 py-3">
+                                                    <span
+                                                        class="px-2 py-1 rounded-full text-xs bg-green-500/20 text-green-400">Confirmed</span>
+                                                </td>
+                                                <td class="px-4 py-3">
+                                                    <button class="text-brand-accent hover:underline">View</button>
+                                                </td>
+                                            </tr>
+                                            <tr class="hover:bg-brand-bg transition-colors">
+                                                <td class="px-4 py-3 font-mono">11:00 AM</td>
+                                                <td class="px-4 py-3 font-bold text-brand-text">Jane Smith</td>
+                                                <td class="px-4 py-3">MRI Brain</td>
+                                                <td class="px-4 py-3">
+                                                    <span
+                                                        class="px-2 py-1 rounded-full text-xs bg-yellow-500/20 text-yellow-400">Pending</span>
+                                                </td>
+                                                <td class="px-4 py-3">
+                                                    <button class="text-brand-accent hover:underline">View</button>
+                                                </td>
+                                            </tr>
+                                            <tr class="hover:bg-brand-bg transition-colors">
+                                                <td class="px-4 py-3 font-mono">08:30 AM</td>
+                                                <td class="px-4 py-3 font-bold text-brand-text">Robert Brown</td>
+                                                <td class="px-4 py-3">HbA1c</td>
+                                                <td class="px-4 py-3">
+                                                    <span
+                                                        class="px-2 py-1 rounded-full text-xs bg-green-500/20 text-green-400">Completed</span>
+                                                </td>
+                                                <td class="px-4 py-3">
+                                                    <button class="text-brand-accent hover:underline">View</button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pending Reports -->
+                        <div>
+                            <div class="bg-brand-bgSec/40 border border-brand-border p-8 rounded-3xl h-full">
+                                <h2 class="text-xl font-bold text-brand-text mb-6">Pending Reports</h2>
+                                <div class="space-y-4">
+                                    <div
+                                        class="p-4 bg-brand-bg rounded border border-brand-border hover:border-brand-accent cursor-pointer transition-colors">
+                                        <div class="flex justify-between mb-1">
+                                            <span class="font-bold text-brand-text">Alice Johnson</span>
+                                            <span class="text-xs text-red-400 font-mono">Urgent</span>
+                                        </div>
+                                        <p class="text-sm text-brand-textSec mb-3">Thyroid Profile</p>
+                                        <button
+                                            class="w-full py-2 text-xs rounded bg-brand-accent text-brand-bg font-bold hover:bg-brand-accentSec transition-colors">Analyze
+                                            & Sign</button>
+                                    </div>
+                                    <!-- Empty state placeholder if needed -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        lucide.createIcons();
+        document.getElementById('current-date').innerText = new Date().toLocaleDateString();
+    </script>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

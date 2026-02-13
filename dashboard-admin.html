@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | BioPulse Diagnostics</title>
+    <meta name="description"
+        content="BioPulse Diagnostics Admin Overview - Monitor test volume, revenue trends, and patient metrics.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Lexend+Deca:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Charts.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body class="bg-brand-bg text-brand-text transition-colors duration-300">
+
+    <div class="min-h-screen bg-brand-bg flex transition-colors duration-300">
+        <!-- Sidebar -->
+        <aside
+            class="w-64 bg-brand-bgSec border-r border-brand-border hidden lg:flex flex-col transition-colors duration-300">
+            <div class="h-20 flex items-center px-6 border-b border-brand-border cursor-pointer"
+                onclick="window.location.href='index.html'">
+                <i data-lucide="dna" class="h-8 w-8 text-brand-accent"></i>
+                <span class="ml-2 text-xl font-heading font-bold text-brand-text">BioPulse</span>
+            </div>
+            <div class="flex-1 py-6 px-4 space-y-2">
+                <a href="dashboard-admin.html"
+                    class="w-full flex items-center space-x-3 px-4 py-3 rounded-lg bg-brand-accent text-brand-bg font-bold shadow-[0_0_10px_var(--brand-accent)] transition-all">
+                    <i data-lucide="layout-dashboard" class="h-5 w-5"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#"
+                    class="w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-brand-textSec hover:bg-brand-bg transition-all">
+                    <i data-lucide="dna" class="h-5 w-5"></i>
+                    <span>Tests</span>
+                </a>
+                <a href="#"
+                    class="w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-brand-textSec hover:bg-brand-bg transition-all">
+                    <i data-lucide="users" class="h-5 w-5"></i>
+                    <span>Doctors</span>
+                </a>
+                <a href="#"
+                    class="w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-brand-textSec hover:bg-brand-bg transition-all">
+                    <i data-lucide="file-text" class="h-5 w-5"></i>
+                    <span>Reports</span>
+                </a>
+            </div>
+            <div class="p-4 border-t border-brand-border">
+                <a href="index.html"
+                    class="w-full flex items-center space-x-3 px-4 py-3 text-red-500 hover:bg-red-500/10 rounded-lg transition-colors">
+                    <i data-lucide="log-out" class="h-5 w-5"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="flex-1 flex flex-col h-screen overflow-hidden">
+            <!-- Mobile Header -->
+            <header
+                class="lg:hidden h-16 bg-brand-bgSec flex items-center justify-between px-4 border-b border-brand-border shrink-0 transition-colors duration-300">
+                <div class="flex items-center" onclick="window.location.href='index.html'">
+                    <i data-lucide="dna" class="h-8 w-8 text-brand-accent"></i>
+                    <span class="ml-2 font-bold text-brand-text">BioPulse</span>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button id="theme-toggle"
+                        class="p-2 rounded-full text-brand-textSec hover:text-brand-accent transition-colors theme-icon"></button>
+                    <a href="index.html"><i data-lucide="log-out" class="h-6 w-6 text-red-400"></i></a>
+                </div>
+            </header>
+
+            <main class="flex-1 p-4 lg:p-8 overflow-y-auto">
+                <div class="space-y-8 animate-in fade-in duration-500">
+                    <h1 class="text-3xl font-heading font-bold text-brand-text">Admin Overview</h1>
+
+                    <!-- Stats Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                        <div class="bg-brand-bgSec/40 border border-brand-border p-6 rounded-3xl text-center">
+                            <div class="text-4xl font-bold text-brand-accent mb-2">405</div>
+                            <div class="text-brand-textSec">Tests This Week</div>
+                        </div>
+                        <div class="bg-brand-bgSec/40 border border-brand-border p-6 rounded-3xl text-center">
+                            <div class="text-4xl font-bold text-brand-accentSec mb-2">$12.5k</div>
+                            <div class="text-brand-textSec">Total Revenue</div>
+                        </div>
+                        <div class="bg-brand-bgSec/40 border border-brand-border p-6 rounded-3xl text-center">
+                            <div class="text-4xl font-bold text-blue-400 mb-2">89</div>
+                            <div class="text-brand-textSec">New Patients</div>
+                        </div>
+                        <div class="bg-brand-bgSec/40 border border-brand-border p-6 rounded-3xl text-center">
+                            <div class="text-4xl font-bold text-purple-400 mb-2">98%</div>
+                            <div class="text-brand-textSec">Satisfaction Rate</div>
+                        </div>
+                    </div>
+
+                    <!-- Charts Grid -->
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <!-- Weekly Test Volume -->
+                        <div class="bg-brand-bgSec/40 border border-brand-border p-8 rounded-3xl">
+                            <h3 class="text-xl font-bold text-brand-text mb-6">Weekly Test Volume</h3>
+                            <div class="h-64 w-full">
+                                <canvas id="testVolumeChart"></canvas>
+                            </div>
+                        </div>
+
+                        <!-- Revenue Trend -->
+                        <div class="bg-brand-bgSec/40 border border-brand-border p-8 rounded-3xl">
+                            <h3 class="text-xl font-bold text-brand-text mb-6">Revenue Trend</h3>
+                            <div class="h-64 w-full">
+                                <canvas id="revenueTrendChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        lucide.createIcons();
+
+        // Weekly Test Volume Chart
+        const testVolumeCtx = document.getElementById('testVolumeChart').getContext('2d');
+        new Chart(testVolumeCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                datasets: [{
+                    label: 'Tests',
+                    data: [40, 30, 55, 80, 65, 90, 45],
+                    backgroundColor: '#00F5C0',
+                    borderRadius: 8,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        backgroundColor: '#1E3D35',
+                        titleColor: '#00F5C0',
+                        bodyColor: '#fff',
+                        borderColor: '#00F5C0',
+                        borderWidth: 1
+                    }
+                },
+                scales: {
+                    x: {
+                        grid: { display: false },
+                        ticks: { color: '#9CA3AF' }
+                    },
+                    y: {
+                        grid: { color: '#374151', drawBorder: false },
+                        ticks: { color: '#9CA3AF' }
+                    }
+                }
+            }
+        });
+
+        // Revenue Trend Chart
+        const revenueTrendCtx = document.getElementById('revenueTrendChart').getContext('2d');
+        new Chart(revenueTrendCtx, {
+            type: 'line',
+            data: {
+                labels: ['Wk1', 'Wk2', 'Wk3', 'Wk4'],
+                datasets: [{
+                    label: 'Revenue',
+                    data: [2400, 1398, 9800, 3908],
+                    borderColor: '#00C853',
+                    backgroundColor: 'rgba(0, 200, 83, 0.1)',
+                    borderWidth: 3,
+                    fill: true,
+                    tension: 0.4,
+                    pointRadius: 4,
+                    pointBackgroundColor: '#00C853'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        backgroundColor: '#1E3D35',
+                        titleColor: '#00C853',
+                        bodyColor: '#fff',
+                        borderColor: '#00C853',
+                        borderWidth: 1
+                    }
+                },
+                scales: {
+                    x: {
+                        grid: { display: false },
+                        ticks: { color: '#9CA3AF' }
+                    },
+                    y: {
+                        grid: { color: '#374151', drawBorder: false },
+                        ticks: { color: '#9CA3AF' }
+                    }
+                }
+            }
+        });
+    </script>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

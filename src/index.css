@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+/* Custom styles for BioPulse Diagnostics */
+:root {
+  /* Default Dark Mode */
+  --brand-bg: #00130F;
+  --brand-bgSec: #1E3D35;
+  --brand-accent: #00F5C0;
+  --brand-accentSec: #00C853;
+  --brand-text: #FFFFFF;
+  --brand-textSec: #D6FFF3;
+  --brand-border: #374151;
+}
+
+[data-theme='light'] {
+  --brand-bg: #F0FDFA; /* Very light teal/white */
+  --brand-bgSec: #FFFFFF;
+  --brand-accent: #0D9488; /* Teal 600 - Darker for visibility on white */
+  --brand-accentSec: #059669;
+  --brand-text: #111827; /* Gray 900 */
+  --brand-textSec: #4B5563; /* Gray 600 */
+  --brand-border: #E5E7EB;
+}
+
+@theme {
+  --color-brand-bg: var(--brand-bg);
+  --color-brand-bgSec: var(--brand-bgSec);
+  --color-brand-accent: var(--brand-accent);
+  --color-brand-accentSec: var(--brand-accentSec);
+  --color-brand-text: var(--brand-text);
+  --color-brand-textSec: var(--brand-textSec);
+  --color-brand-border: var(--brand-border);
+  
+  --font-sans: 'Inter', sans-serif;
+  --font-heading: 'Lexend Deca', sans-serif;
+  
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 800px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+  
+  --shadow-neon: 0 0 10px rgba(0, 245, 192, 0.5);
+  --shadow-neon-strong: 0 0 20px rgba(0, 245, 192, 0.8);
+  
+  --animate-float: float 6s ease-in-out infinite;
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+  }
+}
+
+body {
+  background-color: var(--brand-bg);
+  color: var(--brand-text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

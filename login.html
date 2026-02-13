@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | BioPulse Diagnostics</title>
+    <meta name="description"
+        content="Secure portal access for patients, doctors, and administrators at BioPulse Diagnostics.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Lexend+Deca:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+
+</head>
+
+<body class="bg-brand-bg text-brand-text transition-colors duration-300">
+
+    <div class="min-h-screen flex flex-col items-center justify-center p-3 sm:p-4 overflow-y-auto">
+        <!-- Logo Header -->
+        <div class="w-full p-3 sm:p-4 flex justify-center shrink-0 mb-2 sm:mb-4 flex-col items-center">
+            <a href="index.html" class="flex items-center cursor-pointer hover:opacity-80 transition-opacity">
+                <div class="relative">
+                    <i data-lucide="dna" class="h-7 w-7 sm:h-8 sm:w-8 text-brand-accent"></i>
+                </div>
+                <span class="ml-2 text-lg sm:text-xl font-heading font-bold text-brand-text tracking-wide">
+                    Bio<span class="text-brand-accent">Pulse</span>
+                </span>
+            </a>
+        </div>
+
+        <!-- Role Selection (Default visible) -->
+        <div id="role-selection" class="w-full max-w-5xl flex flex-col items-center flex-1 justify-center py-4">
+            <div class="mb-4 sm:mb-6 text-center">
+                <h2 class="text-xl sm:text-2xl md:text-3xl font-heading font-bold text-brand-text mb-1 sm:mb-2">
+                    Welcome to BioPulse
+                </h2>
+                <p class="text-brand-textSec text-xs sm:text-sm">Select your portal to continue.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4 w-full mb-4 sm:mb-6">
+                <!-- Patient Card -->
+                <div onclick="showLoginForm('patient')"
+                    class="cursor-pointer group bg-brand-bgSec/40 border border-brand-border p-6 rounded-2xl text-center hover:bg-brand-bgSec/80 transition-all duration-300">
+                    <div
+                        class="w-10 h-10 sm:w-12 sm:h-12 bg-brand-bg rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 group-hover:scale-110 transition-transform border border-brand-border group-hover:border-brand-accent">
+                        <i data-lucide="user" class="h-5 w-5 sm:h-6 sm:w-6 text-brand-accent"></i>
+                    </div>
+                    <h3 class="text-lg sm:text-xl font-bold text-brand-text mb-1 sm:mb-2">Patient Portal</h3>
+                    <p class="text-xs sm:text-sm text-brand-textSec mb-3 sm:mb-4">Access reports, book tests, and manage
+                        profile.</p>
+                    <div
+                        class="mt-auto text-brand-accent font-bold flex items-center justify-center text-xs sm:text-sm leading-none">
+                        Login <i data-lucide="arrow-right" class="ml-2 h-3 w-3"></i>
+                    </div>
+                </div>
+                <!-- Doctor Card -->
+                <div onclick="showLoginForm('doctor')"
+                    class="cursor-pointer group bg-brand-bgSec/40 border border-brand-border p-6 rounded-2xl text-center hover:bg-brand-bgSec/80 transition-all duration-300">
+                    <div
+                        class="w-10 h-10 sm:w-12 sm:h-12 bg-brand-bg rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 group-hover:scale-110 transition-transform border border-brand-border group-hover:border-brand-accent">
+                        <i data-lucide="stethoscope" class="h-5 w-5 sm:h-6 sm:w-6 text-brand-accent"></i>
+                    </div>
+                    <h3 class="text-lg sm:text-xl font-bold text-brand-text mb-1 sm:mb-2">Doctor Portal</h3>
+                    <p class="text-xs sm:text-sm text-brand-textSec mb-3 sm:mb-4">View assigned patients and review
+                        reports.</p>
+                    <div
+                        class="mt-auto text-brand-accent font-bold flex items-center justify-center text-xs sm:text-sm leading-none">
+                        Login <i data-lucide="arrow-right" class="ml-2 h-3 w-3"></i>
+                    </div>
+                </div>
+                <!-- Admin Card -->
+                <div onclick="showLoginForm('admin')"
+                    class="cursor-pointer group bg-brand-bgSec/40 border border-brand-border p-6 rounded-2xl text-center hover:bg-brand-bgSec/80 transition-all duration-300">
+                    <div
+                        class="w-10 h-10 sm:w-12 sm:h-12 bg-brand-bg rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 group-hover:scale-110 transition-transform border border-brand-border group-hover:border-brand-accent">
+                        <i data-lucide="shield-check" class="h-5 w-5 sm:h-6 sm:w-6 text-brand-accent"></i>
+                    </div>
+                    <h3 class="text-lg sm:text-xl font-bold text-brand-text mb-1 sm:mb-2">Admin Portal</h3>
+                    <p class="text-xs sm:text-sm text-brand-textSec mb-3 sm:mb-4">Manage tests, staff, and analytics.
+                    </p>
+                    <div
+                        class="mt-auto text-brand-accent font-bold flex items-center justify-center text-xs sm:text-sm leading-none">
+                        Login <i data-lucide="arrow-right" class="ml-2 h-3 w-3"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <p class="text-xs sm:text-sm text-brand-textSec">New to BioPulse?</p>
+                <a href="register.html"
+                    class="mt-2 inline-block px-4 sm:px-6 py-1.5 sm:py-2 text-xs sm:text-sm rounded-full border border-brand-accent text-brand-accent hover:bg-brand-accent hover:text-brand-bg transition-all">Register
+                    as New Patient</a>
+            </div>
+        </div>
+
+        <!-- Login Form (Hidden by default) -->
+        <div id="login-form-container"
+            class="hidden w-full max-w-md bg-brand-bgSec/40 border border-brand-accent/30 p-4 sm:p-6 rounded-3xl shadow-[0_0_50px_rgba(0,245,192,0.1)] relative animate-in fade-in zoom-in duration-300 my-4">
+            <button onclick="hideLoginForm()"
+                class="absolute top-2 right-2 sm:top-3 sm:right-3 text-brand-textSec hover:text-brand-text bg-brand-bg p-1.5 sm:p-2 rounded-full hover:bg-brand-bgSec transition-colors">
+                <i data-lucide="x" class="h-4 w-4 sm:h-5 sm:w-5"></i>
+            </button>
+
+            <div class="text-center mb-4 sm:mb-6 pt-1 sm:pt-2">
+                <h2 id="login-title" class="text-xl sm:text-2xl font-heading font-bold text-brand-text mb-1">Login</h2>
+                <p class="text-xs sm:text-sm text-brand-textSec">Secure access for authorized personnel only.</p>
+            </div>
+
+            <form onsubmit="handleAuth(event)" class="space-y-3 sm:space-y-4">
+                <div>
+                    <label id="identifier-label"
+                        class="block text-xs sm:text-sm font-medium text-brand-textSec mb-1">Email Address</label>
+                    <input id="identifier-input" required type="email"
+                        class="w-full bg-brand-bg border border-brand-border rounded p-2 sm:p-2.5 text-sm text-brand-text focus:border-brand-accent focus:outline-none placeholder-gray-500"
+                        placeholder="name@biopulse.com">
+                </div>
+                <div>
+                    <label class="block text-xs sm:text-sm font-medium text-brand-textSec mb-1">Password</label>
+                    <input required type="password"
+                        class="w-full bg-brand-bg border border-brand-border rounded p-2 sm:p-2.5 text-sm text-brand-text focus:border-brand-accent focus:outline-none placeholder-gray-500"
+                        placeholder="••••••••">
+                </div>
+
+                <div
+                    class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-0 text-xs text-center sm:text-left">
+                    <div class="flex items-center justify-center sm:justify-start">
+                        <input id="remember-me" type="checkbox"
+                            class="h-3.5 w-3.5 rounded border-brand-border text-brand-accent focus:ring-brand-accent bg-brand-bg">
+                        <label htmlFor="remember-me" class="ml-2 block text-brand-textSec cursor-pointer">Remember
+                            me</label>
+                    </div>
+                    <a href="#" class="text-brand-accent hover:underline font-medium">Forgot Password?</a>
+                </div>
+
+                <button type="submit"
+                    class="w-full py-2.5 sm:py-3 rounded-full bg-brand-accent text-brand-bg font-bold shadow-[0_0_15px_rgba(0,245,192,0.3)] hover:shadow-[0_0_25px_rgba(0,245,192,0.6)] hover:bg-brand-accentSec transition-all duration-300">
+                    Access Dashboard
+                </button>
+
+                <p id="register-hint" class="hidden text-center text-brand-textSec text-xs mt-2 sm:mt-3">
+                    Don't have an account? <a href="register.html"
+                        class="text-brand-accent hover:underline font-bold">Register</a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        lucide.createIcons();
+
+        let currentRole = null;
+
+        function showLoginForm(role) {
+            currentRole = role;
+            document.getElementById('role-selection').classList.add('hidden');
+            document.getElementById('login-form-container').classList.remove('hidden');
+
+            const title = document.getElementById('login-title');
+            const label = document.getElementById('identifier-label');
+            const input = document.getElementById('identifier-input');
+            const hint = document.getElementById('register-hint');
+
+            if (role === 'patient') {
+                title.innerText = 'Patient Login';
+                label.innerText = 'Patient ID / Mobile';
+                input.type = 'text';
+                input.placeholder = 'Enter ID';
+                hint.classList.remove('hidden');
+            } else if (role === 'doctor') {
+                title.innerText = 'Doctor Login';
+                label.innerText = 'Email Address';
+                input.type = 'email';
+                input.placeholder = 'name@biopulse.com';
+                hint.classList.add('hidden');
+            } else {
+                title.innerText = 'Admin Access';
+                label.innerText = 'Email Address';
+                input.type = 'email';
+                input.placeholder = 'admin@biopulse.com';
+                hint.classList.add('hidden');
+            }
+        }
+
+        function hideLoginForm() {
+            currentRole = null;
+            document.getElementById('role-selection').classList.remove('hidden');
+            document.getElementById('login-form-container').classList.add('hidden');
+        }
+
+        function handleAuth(event) {
+            event.preventDefault();
+            if (currentRole === 'patient') window.location.href = 'dashboard-patient.html';
+            else if (currentRole === 'doctor') window.location.href = 'dashboard-doctor.html';
+            else if (currentRole === 'admin') window.location.href = 'dashboard-admin.html';
+        }
+    </script>
+</body>
+
+</html>

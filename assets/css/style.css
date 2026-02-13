@@ -1,0 +1,141 @@
+@theme {
+  --color-brand-bg: var(--brand-bg);
+  --color-brand-bgSec: var(--brand-bgSec);
+  --color-brand-accent: var(--brand-accent);
+  --color-brand-accentSec: var(--brand-accentSec);
+  --color-brand-text: var(--brand-text);
+  --color-brand-textSec: var(--brand-textSec);
+  --color-brand-border: var(--brand-border);
+  --font-heading: 'Lexend Deca', sans-serif;
+  --shadow-neon: 0 0 10px rgba(0, 245, 192, 0.5);
+  --shadow-neon-strong: 0 0 20px rgba(0, 245, 192, 0.8);
+}
+
+:root {
+  /* Default Dark Mode */
+  --brand-bg: #00130F;
+  --brand-bgSec: #1E3D35;
+  --brand-accent: #00F5C0;
+  --brand-accentSec: #00C853;
+  --brand-text: #FFFFFF;
+  --brand-textSec: #D6FFF3;
+  --brand-border: #374151;
+}
+
+[data-theme='light'] {
+  --brand-bg: #F0FDFA;
+  --brand-bgSec: #FFFFFF;
+  --brand-accent: #0D9488;
+  --brand-accentSec: #059669;
+  --brand-text: #111827;
+  --brand-textSec: #4B5563;
+  --brand-border: #E5E7EB;
+}
+
+body {
+  background-color: var(--brand-bg);
+  color: var(--brand-text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  margin: 0;
+}
+
+.font-heading {
+  font-family: 'Lexend Deca', sans-serif;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Animations */
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.shadow-neon {
+  box-shadow: 0 0 10px rgba(0, 245, 192, 0.5);
+}
+
+.shadow-neon-strong {
+  box-shadow: 0 0 20px rgba(0, 245, 192, 0.8);
+}
+
+/* Base Tailwind-like Utility overrides/additions if needed */
+.bg-brand-bg {
+  background-color: var(--brand-bg);
+}
+
+.bg-brand-bgSec {
+  background-color: var(--brand-bgSec);
+}
+
+.text-brand-text {
+  color: var(--brand-text);
+}
+
+.text-brand-textSec {
+  color: var(--brand-textSec);
+}
+
+.text-brand-accent {
+  color: var(--brand-accent);
+}
+
+.border-brand-border {
+  border-color: var(--brand-border);
+}
+
+/* Home V2 Specific */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes pulse-slow {
+
+  0%,
+  100% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.4;
+    transform: scale(1.1);
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 8s ease-in-out infinite;
+}
+
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.rotate-y-12 {
+  transform: rotateY(12deg);
+}

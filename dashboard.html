@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | BioPulse Diagnostics</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Lexend+Deca:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body class="bg-brand-bg text-brand-text transition-colors duration-300 min-h-screen">
+
+    <!-- Header -->
+    <header
+        class="sticky top-0 z-50 bg-brand-bgSec/95 border-b border-brand-border backdrop-blur-md h-20 flex items-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex justify-between items-center">
+            <div class="flex items-center cursor-pointer" onclick="window.location.href='index.html'">
+                <i data-lucide="dna" class="h-10 w-10 text-brand-accent animate-pulse"></i>
+                <span class="ml-3 text-2xl font-heading font-bold text-brand-text">BioPulse</span>
+            </div>
+
+            <div class="flex items-center space-x-4">
+                <button id="theme-toggle"
+                    class="p-2 rounded-full text-brand-textSec hover:text-brand-accent transition-colors theme-icon"></button>
+                <button id="sidebar-toggle"
+                    class="p-3 bg-brand-accent rounded-full text-brand-bg flex items-center justify-center hover:scale-110 transition-transform">
+                    <i data-lucide="chevron-right" id="sidebar-icon"></i>
+                </button>
+                <a href="index.html"
+                    class="hidden md:flex items-center space-x-2 px-5 py-2 rounded-full bg-red-500/10 text-red-400 border border-red-500/30 hover:bg-red-500/20 transition-all">
+                    <i data-lucide="log-out" class="h-5 w-5"></i>
+                    <span class="font-medium">Logout</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <div class="flex relative">
+        <!-- Main Content Area -->
+        <main id="main-content" class="flex-1 p-4 lg:p-8 transition-all duration-300 mr-0 md:mr-80">
+            <div class="max-w-7xl mx-auto space-y-8 animate-in fade-in duration-500">
+
+                <!-- Page Content (Dynamic via JS) -->
+                <div id="view-overview" class="dashboard-view space-y-8">
+                    <h1 class="text-3xl font-heading font-bold text-brand-text">Dashboard Overview</h1>
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                        <div
+                            class="bg-brand-bgSec border border-brand-border p-6 rounded-xl hover:border-brand-accent transition-all group">
+                            <div class="flex items-center space-x-3 mb-4">
+                                <i data-lucide="calendar" class="h-6 w-6 text-brand-accent"></i>
+                                <span class="text-sm text-brand-textSec">Appointments</span>
+                            </div>
+                            <div class="text-3xl font-bold text-brand-accent">34</div>
+                        </div>
+                        <div
+                            class="bg-brand-bgSec border border-brand-border p-6 rounded-xl hover:border-brand-accentSec transition-all group">
+                            <div class="flex items-center space-x-3 mb-4">
+                                <i data-lucide="activity" class="h-6 w-6 text-brand-accentSec"></i>
+                                <span class="text-sm text-brand-textSec">Procedures</span>
+                            </div>
+                            <div class="text-3xl font-bold text-brand-accentSec">12</div>
+                        </div>
+                        <div
+                            class="bg-brand-bgSec border border-brand-border p-6 rounded-xl hover:border-blue-400 transition-all group">
+                            <div class="flex items-center space-x-3 mb-4">
+                                <i data-lucide="file-text" class="h-6 w-6 text-blue-400"></i>
+                                <span class="text-sm text-brand-textSec">Samples</span>
+                            </div>
+                            <div class="text-3xl font-bold text-blue-400">142</div>
+                        </div>
+                        <div
+                            class="bg-brand-bgSec border border-brand-border p-6 rounded-xl hover:border-red-400 transition-all group">
+                            <div class="flex items-center space-x-3 mb-4">
+                                <i data-lucide="alert-circle" class="h-6 w-6 text-red-400"></i>
+                                <span class="text-sm text-brand-textSec">Critical</span>
+                            </div>
+                            <div class="text-3xl font-bold text-red-400">5</div>
+                        </div>
+                    </div>
+
+                    <div class="bg-brand-bgSec border border-brand-border rounded-xl p-8">
+                        <h2 class="text-2xl font-bold mb-6">Patient Flow</h2>
+                        <div class="space-y-6">
+                            <div class="flex border-l-4 border-brand-accent/50 pl-8 pb-8 relative">
+                                <div class="absolute -left-[10px] top-0 w-5 h-5 rounded-full bg-brand-accent"></div>
+                                <div>
+                                    <h3 class="text-lg font-bold">Check-in</h3>
+                                    <p class="text-brand-textSec">Patient registration completed</p>
+                                </div>
+                            </div>
+                            <div class="flex border-l-4 border-brand-accent/50 pl-8 pb-8 relative">
+                                <div class="absolute -left-[10px] top-0 w-5 h-5 rounded-full bg-brand-accent"></div>
+                                <div>
+                                    <h3 class="text-lg font-bold">Consultation</h3>
+                                    <p class="text-brand-textSec">Doctor examination in progress</p>
+                                </div>
+                            </div>
+                            <div class="flex pl-8 relative">
+                                <div class="absolute -left-[10px] top-0 w-5 h-5 rounded-full bg-brand-accentSec"></div>
+                                <div>
+                                    <h3 class="text-lg font-bold">Treatment</h3>
+                                    <p class="text-brand-textSec">Treatment plan execution</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="view-activity" class="dashboard-view hidden space-y-8">
+                    <h1 class="text-3xl font-heading font-bold text-brand-text">Recent Activity</h1>
+                    <div class="bg-brand-bgSec border border-brand-border rounded-xl p-6">
+                        <div class="space-y-4" id="activity-list">
+                            <!-- Injected by simple JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <div id="view-support" class="dashboard-view hidden space-y-8">
+                    <h1 class="text-3xl font-heading font-bold text-brand-text">Support & Help</h1>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-center">
+                        <div
+                            class="bg-brand-bgSec border border-brand-border p-8 rounded-xl hover:border-brand-accent transition-all cursor-pointer">
+                            <i data-lucide="message-circle" class="h-12 w-12 text-brand-accent mx-auto mb-4"></i>
+                            <h3 class="text-xl font-bold">Live Chat</h3>
+                            <p class="text-brand-textSec">Talk to our experts now</p>
+                        </div>
+                        <div
+                            class="bg-brand-bgSec border border-brand-border p-8 rounded-xl hover:border-blue-400 transition-all cursor-pointer">
+                            <i data-lucide="book" class="h-12 w-12 text-blue-400 mx-auto mb-4"></i>
+                            <h3 class="text-xl font-bold">Documentation</h3>
+                            <p class="text-brand-textSec">Read our help guides</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Other views placeholders ... -->
+            </div>
+        </main>
+
+        <!-- Sidebar Navigation -->
+        <aside id="sidebar"
+            class="fixed top-20 right-0 h-[calc(100vh-5rem)] w-80 bg-brand-bgSec/95 border-l border-brand-border backdrop-blur-md shadow-2xl transition-transform duration-300 p-6 z-40">
+            <div class="space-y-4">
+                <button data-view="overview"
+                    class="view-btn w-full flex items-center space-x-3 p-4 rounded-xl transition-all border-2 border-brand-accent bg-brand-accent/20 text-brand-accent">
+                    <i data-lucide="compass"></i>
+                    <span class="font-bold">Quick Overview</span>
+                </button>
+                <button data-view="activity"
+                    class="view-btn w-full flex items-center space-x-3 p-4 rounded-xl transition-all border border-brand-border bg-brand-bg text-brand-text hover:border-brand-accentSec/50">
+                    <i data-lucide="clock"></i>
+                    <span class="font-bold">Recent Activity</span>
+                </button>
+                <button data-view="support"
+                    class="view-btn w-full flex items-center space-x-3 p-4 rounded-xl transition-all border border-brand-border bg-brand-bg text-brand-text hover:border-purple-400/50">
+                    <i data-lucide="help-circle"></i>
+                    <span class="font-bold">Support & Help</span>
+                </button>
+                <button data-view="overview"
+                    class="w-full flex items-center space-x-3 p-4 rounded-xl border border-brand-border bg-brand-bg text-brand-text hover:border-blue-400/50">
+                    <i data-lucide="bar-chart-3"></i>
+                    <span class="font-bold">Data Insights</span>
+                </button>
+                <button data-view="overview"
+                    class="w-full flex items-center space-x-3 p-4 rounded-xl border border-brand-border bg-brand-bg text-brand-text hover:border-brand-accent/50">
+                    <i data-lucide="settings"></i>
+                    <span class="font-bold">Settings</span>
+                </button>
+            </div>
+
+            <div
+                class="mt-8 p-4 bg-linear-to-br from-brand-accent/20 to-brand-accentSec/20 rounded-xl border border-brand-accent/30 flex items-center space-x-3">
+                <div class="w-12 h-12 rounded-full bg-brand-accent/30 flex items-center justify-center">
+                    <i data-lucide="user" class="text-brand-accent"></i>
+                </div>
+                <div>
+                    <p class="font-bold">Admin User</p>
+                    <p class="text-xs text-brand-textSec">admin@biopulse.com</p>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        lucide.createIcons();
+
+        // View Switching
+        document.querySelectorAll('.view-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const viewId = `view-${btn.dataset.view}`;
+                document.querySelectorAll('.dashboard-view').forEach(view => {
+                    view.classList.add('hidden');
+                });
+                document.getElementById(viewId).classList.remove('hidden');
+
+                // Update Button Styles
+                document.querySelectorAll('.view-btn').forEach(b => {
+                    b.classList.remove('bg-brand-accent/20', 'border-2', 'border-brand-accent', 'text-brand-accent');
+                    b.classList.add('bg-brand-bg', 'border', 'border-brand-border', 'text-brand-text');
+                });
+                btn.classList.add('bg-brand-accent/20', 'border-2', 'border-brand-accent', 'text-brand-accent');
+                btn.classList.remove('bg-brand-bg', 'border', 'border-brand-border', 'text-brand-text');
+            });
+        });
+
+        // Sidebar Toggle
+        const sidebar = document.getElementById('sidebar');
+        const mainContent = document.getElementById('main-content');
+        const sidebarIcon = document.getElementById('sidebar-icon');
+        let sidebarOpen = true;
+
+        document.getElementById('sidebar-toggle').addEventListener('click', () => {
+            sidebarOpen = !sidebarOpen;
+            if (sidebarOpen) {
+                sidebar.classList.remove('translate-x-full');
+                mainContent.classList.add('md:mr-80');
+                sidebarIcon.setAttribute('data-lucide', 'chevron-right');
+            } else {
+                sidebar.classList.add('translate-x-full');
+                mainContent.classList.remove('md:mr-80');
+                sidebarIcon.setAttribute('data-lucide', 'chevron-left');
+            }
+            lucide.createIcons();
+        });
+
+        // Mock Activity Data
+        const activityList = document.getElementById('activity-list');
+        const activities = [
+            { title: 'Report Generated', desc: 'Blood Test - Patient #1234', time: '2 min ago', color: 'text-green-400' },
+            { title: 'New Appointment', desc: 'Dr. Smith - 2:30 PM', time: '15 min ago', color: 'text-blue-400' },
+            { title: 'System Update', desc: 'Database backup completed', time: '1 hour ago', color: 'text-yellow-400' }
+        ];
+
+        activities.forEach(act => {
+            const div = document.createElement('div');
+            div.className = "flex items-start space-x-4 p-4 rounded-lg border border-brand-border hover:border-brand-accent/50 transition-all";
+            div.innerHTML = `
+                <div class="w-10 h-10 rounded-full bg-brand-accent/10 flex items-center justify-center shrink-0">
+                    <i data-lucide="activity" class="h-5 w-5 ${act.color}"></i>
+                </div>
+                <div class="flex-1">
+                    <p class="font-bold text-brand-text">${act.title}</p>
+                    <p class="text-sm text-brand-textSec">${act.desc}</p>
+                    <span class="text-xs text-brand-textSec opacity-70">${act.time}</span>
+                </div>
+            `;
+            activityList.appendChild(div);
+        });
+        lucide.createIcons();
+    </script>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
